@@ -28,7 +28,7 @@ import com.example.pollEveryWhere.pollEveryWhere.service.UserService;
 
 import antlr.collections.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "http://localhost:3000","https://pollvoicefrontend.herokuapp.com"})
 @RestController
 public class PollController {
 	

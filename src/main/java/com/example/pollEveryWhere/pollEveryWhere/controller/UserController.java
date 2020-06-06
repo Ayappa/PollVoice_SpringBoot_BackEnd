@@ -30,7 +30,7 @@ import com.example.pollEveryWhere.pollEveryWhere.service.UserService;
 import io.jsonwebtoken.Claims;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "http://localhost:3000","https://pollvoicefrontend.herokuapp.com"})
 public class UserController {
 	@Autowired
 	UserService userservice;
@@ -58,7 +58,7 @@ public class UserController {
 		 User userDetails= userservice.saveUser(user);
 		 String toekn=jwt.generateToken(userDetails);
 			final JwtBean jwtToken=new JwtBean(toekn);
-			String link="http://localhost:3000/sendRegisterMail/"+toekn;
+			String link="http://pollvoicefrontend.herokuapp.com/sendRegisterMail/"+toekn;
 			emailServiceImpl.sendSimpleMessage(user.getEmail(),"Registration","\"click on the link to login \\n "+link);
 			return jwtToken;
 	}
@@ -91,7 +91,7 @@ public class UserController {
 				return "user dont exists";
 			}
 		String toekn=jwt.generateDummyToken(userCheck);
-		String link="http://localhost:3000/updatePasswordMail/"+toekn;
+		String link="http://pollvoicefrontend.herokuapp.com/updatePasswordMail/"+toekn;
 		boolean status=emailServiceImpl.sendSimpleMessage(user.getEmail(),"Update PAssword","\"click on the link to reset password : \\n "+link);
 		//emailServiceImpl.sendSimpleMessage(user.getEmail(),"Update PAssword","\"click on link to reset password : \\n Spring Boot Email\"");
 		return status?"email sent":"try again later";
