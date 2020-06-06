@@ -59,7 +59,7 @@ public class UserController {
 		 String toekn=jwt.generateToken(userDetails);
 			final JwtBean jwtToken=new JwtBean(toekn);
 			//String link="http://localhost:3000/sendRegisterMail/"+toekn;
-			String link="http://pollvoicefrontend.herokuapp.com/updatePasswordMail/"+toekn;
+			String link="http://pollvoicefrontend.herokuapp.com/sendRegisterMail/"+toekn;
 			emailServiceImpl.sendSimpleMessage(user.getEmail(),"Registration","\"click on the link to login \\n "+link);
 			return jwtToken;
 	}
