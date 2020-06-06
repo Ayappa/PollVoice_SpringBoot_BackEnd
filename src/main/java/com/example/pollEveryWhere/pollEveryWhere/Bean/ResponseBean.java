@@ -33,6 +33,7 @@ public void setTotalResponse(String totalResponse) {
 public void setMsg(String msg) {
 	this.msg = msg;
 }
+
 public ResponseBean(String msg, String yes, String no, String totalResponse) {
 	super();
 	this.msg = msg;

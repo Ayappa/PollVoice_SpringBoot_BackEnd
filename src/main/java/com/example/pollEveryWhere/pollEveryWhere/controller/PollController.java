@@ -126,25 +126,26 @@ public class PollController {
 	}
 	
 	@PostMapping("/postQuestion/updateYes")
-	public ResponseBean updateYes(@RequestBody PollResponseBean pollResponseBean) {
+	public ResponseBean updateYes(@RequestHeader("questionId") int questionId,@RequestHeader("response") int response) {
+		System.out.println("hhhhhhhhhh  "+questionId);
 		 String email=SecurityContextHolder.getContext().getAuthentication().getName();
 		User user=userService.findUserByEmail(email);
 		Poll pollForTrack=new Poll();
 		User userForTrack=new User();
 		userForTrack.setuId(user.getuId());
-		pollForTrack.setPid(pollResponseBean.getQuestionId());
+		pollForTrack.setPid(questionId);
 		
-		ResponseBean responseBean=new ResponseBean();
+		ResponseBean responseBean=new ResponseBean("","","","");
 		
 		PollTrack checkPrevious=pollTrackService.findIfAnswered(userForTrack,pollForTrack);
 		Poll poll;
 		if(checkPrevious!=null) {
-			poll=pollService.findById(pollResponseBean.getQuestionId());
-			responseBean=new ResponseBean();
+			poll=pollService.findById(questionId);
+		//	responseBean=new ResponseBean();
 			responseBean.setMsg("alreadyVoted");
 			responseBean.setYes(poll.getYesPercent());
 		}else {
-			 poll=pollService.findByIdAndUpdate(pollResponseBean.getQuestionId(),pollResponseBean.getResponse());
+			 poll=pollService.findByIdAndUpdate(questionId,response);
 			PollTrack pollTrack=new PollTrack(userForTrack,pollForTrack);
 			pollTrackService.saveTrack(pollTrack);
 			//responseBean=calculatePercentage(poll);

@@ -1,9 +1,10 @@
 package com.example.pollEveryWhere.pollEveryWhere.Bean;
 
+
 public class PollResponseBean {
-   private int questionId;
-   private int response;
-@Override
+   public int questionId;
+   public int response;
+
 public String toString() {
 	return "PollResponseBean [questionId=" + questionId + ", response=" + response + "]";
 }

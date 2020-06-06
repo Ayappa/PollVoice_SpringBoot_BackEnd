@@ -14,17 +14,17 @@ public interface PollRepository extends Repository<Poll, Integer> {
 
 	Poll findById(int questionId);
 	
-	@Query(value="SELECT * FROM POLL WHERE radio='#1'", nativeQuery = true)
+	@Query(value="SELECT * FROM poll WHERE radio='#1'", nativeQuery = true)
 	ArrayList<Poll> findPolls();
 	
 	// @Query(value="DELETE FROM POLL WHERE pid=?1", nativeQuery = true)
 	void deleteById(int pollId);
 	
 	//@Qeruy("Select  ")
-	 @Query(value="SELECT * FROM POLL WHERE pid IN(SELECT poll_pid from  POLL_TRACK WHERE user_u_id=?1)", nativeQuery = true)
+	 @Query(value="SELECT * FROM poll WHERE pid IN(SELECT poll_pid from  poll_track WHERE user_u_id=?1)", nativeQuery = true)
 	 ArrayList<Poll> findAllAnsweredQuestion(int answeredUserId);
 
-	@Query(value="SELECT * FROM POLL WHERE  user_u_id=?1", nativeQuery = true)
+	@Query(value="SELECT * FROM poll WHERE  user_u_id=?1", nativeQuery = true)
 	ArrayList<Poll> getAllCreatedPoll(int answeredUserId);
 
 	//Poll findByPid(int questionId);
