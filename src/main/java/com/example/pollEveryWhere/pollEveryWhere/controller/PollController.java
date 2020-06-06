@@ -45,7 +45,7 @@ public class PollController {
 		System.out.println(poll.toString());
 		String email=SecurityContextHolder.getContext().getAuthentication().getName();
 		User user=userService.findUserByEmail(email);
-		user.setPassword("");
+		//user.setPassword("");
 		poll.setUser(user);
 		poll.setNoPercent("0%");
 		poll.setYesPercent("0%");
