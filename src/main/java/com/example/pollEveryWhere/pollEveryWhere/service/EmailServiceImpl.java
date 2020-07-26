@@ -25,8 +25,8 @@ public class EmailServiceImpl  {
     	 JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
     	    mailSender.setHost("smtp.gmail.com");
     	    mailSender.setPort(587);
-    	    mailSender.setUsername("pollVoice2020@gmail.com");
-    	    mailSender.setPassword("PollService@2020*");  
+    	    mailSender.setUsername("********");
+    	    mailSender.setPassword("******");  
     	    Properties props = mailSender.getJavaMailProperties();
     	    props.put("mail.transport.protocol", "smtp");
     	    props.put("mail.smtp.auth", "true");
