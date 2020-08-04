@@ -1,4 +1,10 @@
 # PollVoice_SpringBoot_BackEnd
+## Spring JPA - for creating tables in sql and queries over dataBase extending Repository or query Annotations.
+## Spring Security - Configuring Spring Security Configuration for authenticating and authorizing users.
+## Json Web Token - For session and authenticating and authorizing users.
+## Spring Filters -  For redirecting users to check validity of tokens.
+## Spring JDBC - for data storage.
+
 #REST API- Spring JPA ,Security , Jwt ,Authorization 
 ##Api for performing simple crud operation using spring boot technologies  which incubates Dependency Injection, IOC ,Application Context and Bean Factory.
 JPA for performing sqlQuries and creating tables within JDBC and spring Seurity for cross origin resource sharing . JWT for Authorizing and authenticating users with valid token.
